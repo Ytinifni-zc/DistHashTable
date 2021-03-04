@@ -10,3 +10,6 @@
 [submodule "contrib/fmt"]
 	path = contrib/fmt
 	url = https://github.com/fmtlib/fmt
+[submodule "contrib/opendht"]
+	path = contrib/opendht
+	url = https://github.com/savoirfairelinux/opendht
