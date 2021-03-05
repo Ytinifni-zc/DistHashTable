@@ -8,8 +8,8 @@ add_executable(GenRandArray GenRandArray.cpp)
 add_executable(PSort PSortTest.cpp)
 
 # linking Google_Tests_run with DateConverter_lib which will be tested
-target_link_libraries(PSort PRIVATE PODArray gtest gtest_main numa spdlog)
-target_link_libraries(GenRandArray PRIVATE PODArray spdlog)
+target_link_libraries(PSort PODArray gtest gtest_main numa spdlog::spdlog)
+target_link_libraries(GenRandArray PODArray spdlog::spdlog)
 
 add_executable(ODHT OpenDHTTest.cpp)
-target_link_libraries(ODHT PRIVATE PODArray spdlog opendht)
+target_link_libraries(ODHT PODArray spdlog::spdlog opendht)
