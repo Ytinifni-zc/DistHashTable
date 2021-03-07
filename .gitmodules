@@ -13,3 +13,6 @@
 [submodule "contrib/opendht"]
 	path = contrib/opendht
 	url = https://github.com/savoirfairelinux/opendht
+[submodule "contrib/numactl"]
+	path = contrib/numactl
+	url = https://github.com/numactl/numactl.git

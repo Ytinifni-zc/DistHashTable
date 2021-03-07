@@ -8,14 +8,13 @@
 #include <utils/MapFile.h>
 #include <utils/StopWatch.h>
 #include <utils/Gang.h>
-#include <utils/Monitor.h>
 #include <utils/Log.h>
+#include <utils/Monitor.h>
 
 #include "gtest/gtest.h"
 
 
 TEST(PSort, GNU_Sort) {
-    auto mInitialPeakRss = getPeakRSS();
     Stopwatch w;
     size_t length;
     using DataType = int;
@@ -29,17 +28,9 @@ TEST(PSort, GNU_Sort) {
 
     __gnu_parallel::sort(data.begin(), data.end());
     LOG::info("GNU Parallel sort using: {:.2f}ms", w.elapsedSeconds());
-    auto peakRss = getPeakRSS();
-    if (peakRss > mInitialPeakRss) {
-        peakRss -= mInitialPeakRss;
-    } else {
-        peakRss = 0;
-    }
-    LOG::info("Peak Memory = {:.1f}MB", peakRss / 1048576.0);
 }
 
 TEST(PSort, ips4o_Sort) {
-    auto mInitialPeakRss = getPeakRSS();
     Stopwatch w;
     size_t length;
     using DataType = int;
@@ -53,11 +44,4 @@ TEST(PSort, ips4o_Sort) {
 
     ips4o::parallel::sort(data.begin(), data.end());
     LOG::info("IPS4o Parallel sort using: {:.2f}ms", w.elapsedSeconds());
-    auto peakRss = getPeakRSS();
-    if (peakRss > mInitialPeakRss) {
-        peakRss -= mInitialPeakRss;
-    } else {
-        peakRss = 0;
-    }
-    LOG::info("Peak Memory = {:.1f}MB", peakRss / 1048576.0);
 }
